@@ -1,0 +1,63 @@
+/* Reset básico */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Contenedor principal con la imagen de fondo */
+.background-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% del alto de la ventana (viewport) */
+    
+    /* CONFIGURACIÓN DE LA IMAGEN DE FONDO */
+    /* Nota: Reemplaza 'fondo.jpg' con la ruta o URL de tu imagen */
+    background-image: url('fondo.jpg'); 
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla (responsive) */
+    background-position: center center; /* Centrado dinámico de la imagen */
+    background-repeat: no-repeat;
+    
+    /* Flexbox para centrar el contenido (el texto) vertical y horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Capa oscura superpuesta (Overlay) para asegurar el contraste del texto */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
+    z-index: 1; /* Coloca el overlay sobre la imagen de fondo */
+}
+
+/* Estilos para el contenedor del texto futuro */
+.content {
+    position: relative;
+    z-index: 2; /* Coloca el contenido por encima del overlay */
+    color: #ffffff; /* Texto blanco para resaltar sobre el fondo oscuro */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilo provisional del título */
+.content h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin: 0;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra de texto extra para contraste */
+}
+
+/* Media Query para pantallas pequeñas (Móviles) */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2rem;
+    }
+}
