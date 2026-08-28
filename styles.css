@@ -20,10 +20,10 @@ html, body {
     background-position: center center; /* Centrado dinámico de la imagen */
     background-repeat: no-repeat;
     
-    /* Flexbox para centrar el contenido (el texto) vertical y horizontalmente */
+    /* Flexbox para posicionar el contenido */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alineado en la parte superior */
 }
 
 /* Capa oscura superpuesta (Overlay) para asegurar el contraste del texto */
@@ -43,7 +43,7 @@ html, body {
     z-index: 2; /* Coloca el contenido por encima del overlay */
     color: #ffffff; /* Texto blanco para resaltar sobre el fondo oscuro */
     text-align: center;
-    padding: 20px;
+    padding: 8vh 20px 20px; /* Separación desde el borde superior (8% del alto de pantalla) */
 }
 
 /* Estilo provisional del título */
