@@ -1,63 +1,215 @@
-/* Reset básico */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+/* =========================================
+   VARIABLES DE MARCA (CELAYA INGENIERÍA)
+   ========================================= */
+:root {
+    --color-primary: #F1BE3B; /* Amarillo/Dorado */
+    --color-secondary: #00C2D1; /* Cian/Turquesa */
+    --color-dark: #000000;
+    --font-heading: 'Nunito', 'Tsukushi A Round Gothic', sans-serif;
+    --font-body: 'PT Sans', sans-serif;
 }
 
-/* Contenedor principal con la imagen de fondo */
+/* =========================================
+   RESET BÁSICO
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-body);
+    background-color: var(--color-dark);
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL Y FONDO
+   ========================================= */
 .background-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; /* Ocupa el 100% del alto de la ventana (viewport) */
-    
-    /* CONFIGURACIÓN DE LA IMAGEN DE FONDO */
-    /* Nota: Reemplaza 'fondo.jpg' con la ruta o URL de tu imagen */
-    background-image: url('fondo.jpg'); 
-    background-size: cover; /* Asegura que la imagen cubra toda la pantalla (responsive) */
-    background-position: center center; /* Centrado dinámico de la imagen */
+    min-height: 100vh;
+    /* Usando la imagen IA como solicitaste */
+    background-image: url('fondo_ai.jpg'); 
+    background-size: cover; 
+    background-position: center; 
     background-repeat: no-repeat;
-    
-    /* Flexbox para posicionar el contenido */
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alineado en la parte superior */
+    flex-direction: column;
 }
 
-/* Capa oscura superpuesta (Overlay) para asegurar el contraste del texto */
+/* Capa oscura superpuesta (Overlay) */
 .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Color negro con 50% de opacidad */
-    z-index: 1; /* Coloca el overlay sobre la imagen de fondo */
+    background-color: rgba(0, 0, 0, 0.35); /* Oscurecido al 35% para contraste */
+    z-index: 1; 
 }
 
-/* Estilos para el contenedor del texto futuro */
+/* =========================================
+   BARRA DE NAVEGACIÓN (HEADER)
+   ========================================= */
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    width: 100%;
+}
+
+.logo-container .logo {
+    height: 105px; /* Tamaño del logo (ajustable) */
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-secondary); /* Cian al pasar el mouse */
+}
+
+/* =========================================
+   CONTENIDO CENTRAL (HERO)
+   ========================================= */
 .content {
     position: relative;
-    z-index: 2; /* Coloca el contenido por encima del overlay */
-    color: #ffffff; /* Texto blanco para resaltar sobre el fondo oscuro */
+    z-index: 2;
+    color: #ffffff;
     text-align: center;
-    padding: 8vh 20px 20px; /* Separación desde el borde superior (8% del alto de pantalla) */
+    flex-grow: 1; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/* Estilo provisional del título */
 .content h1 {
-    font-size: 3rem;
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 900;
     letter-spacing: 2px;
-    margin: 0;
+    margin-bottom: 20px;
     text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra de texto extra para contraste */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.2;
 }
 
-/* Media Query para pantallas pequeñas (Móviles) */
+.content p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+/* =========================================
+   BOTONES DE LLAMADA A LA ACCIÓN
+   ========================================= */
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary); /* Amarillo */
+    color: var(--color-dark);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: var(--color-dark);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    color: #aaaaaa;
+    font-size: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   RESPONSIVE (DISPOSITIVOS MÓVILES)
+   ========================================= */
 @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
     .content h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+    
+    .content p {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .btn {
+        text-align: center;
     }
 }
